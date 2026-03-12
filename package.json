@@ -1,6 +1,6 @@
 {
-  "name": "functional-regex",
-  "version": "2.0.0",
+  "name": "@applied/functional-regex",
+  "version": "2.0.2",
   "description": "Functional Regex simplifies the way you work with global regular expressions in JavaScript/TypeScript.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -13,6 +13,7 @@
       "require": "./dist/index.cjs"
     }
   },
+  "files": ["./dist"],
   "scripts": {
     "build": "vite build",
     "build:dev": "vite build --mode development",

@@ -30,7 +30,7 @@ while ((match = regex.exec(text)) !== null) {
 Functional Regex provides a cleaner, more expressive API:
 
 ```javascript
-import { fregex } from 'functional-regex';
+import { fregex } from '@applied/functional-regex';
 
 const filenames = fregex(/src="([^"]*)"/g, text).map(m => m[1]);
 ```
@@ -38,14 +38,14 @@ const filenames = fregex(/src="([^"]*)"/g, text).map(m => m[1]);
 ## Installation
 
 ```bash
-npm install functional-regex
+npm install @applied/functional-regex
 ```
 
 Or with other package managers:
 
 ```bash
-pnpm add functional-regex
-yarn add functional-regex
+pnpm add @applied/functional-regex
+yarn add @applied/functional-regex
 ```
 
 ## Quick Start
@@ -53,7 +53,7 @@ yarn add functional-regex
 ### ESM (Recommended)
 
 ```typescript
-import fregex, { forEach, map } from 'functional-regex';
+import fregex, { forEach, map } from '@applied/functional-regex';
 
 // Default export - returns array of matches
 const matches = fregex(/\d+/g, 'There are 42 numbers: 1, 2, 3');
@@ -71,7 +71,7 @@ const results = map(/\d+/g, '1 2 3', (match) => parseInt(match[0]));
 ### CommonJS
 
 ```javascript
-const { fregex, forEach, map } = require('functional-regex');
+const { fregex, forEach, map } = require('@applied/functional-regex');
 
 const results = fregex(/\d+/g, '1 2 3');
 ```
@@ -132,7 +132,7 @@ Optionally extend the RegExp prototype to use `forEach` and `map` directly on re
 **Warning:** This modifies the native RegExp prototype. Use carefully in libraries.
 
 ```typescript
-import { addToRegExp } from 'functional-regex';
+import { addToRegExp } from '@applied/functional-regex';
 
 // Enable prototype methods
 addToRegExp();
@@ -150,7 +150,7 @@ const results = /\d+/g.map('1 2 3', (m) => parseInt(m[0]));
 ### Extract URLs from HTML
 
 ```typescript
-import { fregex } from 'functional-regex';
+import { fregex } from '@applied/functional-regex';
 
 const html = '<a href="https://example.com">Link</a>';
 const urls = fregex(/href="([^"]*)"/g, html).map(m => m[1]);
@@ -203,7 +203,7 @@ const records = fregex(/(\w+),(\d+)/g, csv).map(m => ({
 Full TypeScript support with complete type definitions:
 
 ```typescript
-import fregex, { forEach, map } from 'functional-regex';
+import fregex, { forEach, map } from '@applied/functional-regex';
 
 // Type inference works correctly
 const matches: RegExpExecArray[] = fregex(/\d+/g, '1 2 3');
@@ -242,16 +242,16 @@ If you're using the original `functional-regex`:
 const fregex = require('functional-regex');
 
 // After - just update the import
-import fregex from 'functional-regex';
+import fregex from '@applied/functional-regex';
 // or
-const fregex = require('functional-regex');
+const fregex = require('@applied/functional-regex');
 
 // Everything else works the same!
 ```
 
 ## Possible Future Features
 
-See [FEATURES.md](./FEATURES.md) for a comprehensive list of potential enhancements, including:
+See [FEATURES.md](./documentation/FEATURES.md) for a comprehensive list of potential enhancements, including:
 
 - Additional array methods (`filter`, `reduce`, `some`, `every`, `find`)
 - Enhanced match object with easier capture group access
@@ -267,7 +267,7 @@ See [FEATURES.md](./FEATURES.md) for a comprehensive list of potential enhanceme
 The library automatically detects regex patterns that match empty strings (zero-width matches), which would cause infinite loops:
 
 ```javascript
-import { fregex } from 'functional-regex';
+import { fregex } from '@applied/functional-regex';
 
 try {
   // This pattern matches empty strings (both groups optional)
@@ -293,7 +293,7 @@ try {
 /\w+/g           // One or more word chars
 ```
 
-For detailed information, see [ZERO_WIDTH_MATCH_ISSUE.md](./ZERO_WIDTH_MATCH_ISSUE.md).
+For detailed information, see [ZERO_WIDTH_MATCH_ISSUE.md](./documentation/ZERO_WIDTH_MATCH_ISSUE.md).
 
 ## Performance
 
